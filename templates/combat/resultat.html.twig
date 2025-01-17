@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Résultat du Combat{% endblock %}
+
+{% block body %}
+    <h1>Résultat du Combat</h1>
+    <ul>
+        {% for ligne in resultat %}
+            <li>{{ ligne }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Vainqueur: {{ vainqueur.nom }}</h2>
+    <img src="{{ vainqueur.image }}" alt="{{ vainqueur.nom }}" width="100">
+{% endblock %}

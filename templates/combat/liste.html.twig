@@ -1,7 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CombatController!{% endblock %}
+{% block title %}Liste des Pokémon{% endblock %}
 
 {% block body %}
+<h2>Lancer un combat</h2>
+<form action="{{ path('start_combat') }}" method="post">
+    <label for="pokemon1">Pokémon 1:</label>
+    <select name="pokemon1" id="pokemon1">
+        {% for pokemon in pokemons %}
+            <option value="{{ pokemon.id }}">{{ pokemon.nom }}</option>
+        {% endfor %}
+    </select>
 
+    <label for="pokemon2">Pokémon 2:</label>
+    <select name="pokemon2" id="pokemon2">
+        {% for pokemon in pokemons %}
+            <option value="{{ pokemon.id }}">{{ pokemon.nom }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Lancer le combat</button>
+</form>
+    <h1>Liste des Pokémon</h1>
+    <ul>
+        {% for pokemon in pokemons %}
+            <li>
+                <img src="{{ pokemon.image }}" alt="{{ pokemon.nom }}" width="100">
+                <strong>{{ pokemon.nom }}</strong> - PV: {{ pokemon.pointsVie }}, Attaque: {{ pokemon.pointsAttaque }}, Défense: {{ pokemon.pointsDefense }}
+            </li>
+        {% endfor %}
+    </ul>
+
+   
 {% endblock %}

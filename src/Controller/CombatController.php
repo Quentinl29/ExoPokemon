@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CombatController extends AbstractController
 {
-    #[Route('/liste', name: 'app_pokemon_list')]
+    #[Route('/liste', name: 'pokemon_list')]
     public function listePokemons(PokemonRepository $pokemonRepository): Response
     {
         $pokemons = $pokemonRepository->findAll();
